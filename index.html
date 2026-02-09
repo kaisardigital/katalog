@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; background-color: #0e1621; color: white; margin: 0; padding: 15px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .card { background: #17212b; border-radius: 12px; overflow: hidden; text-align: center; border: 1px solid #2b3948; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .title { padding: 10px; font-size: 13px; font-weight: bold; }
+        .btn { background: #2481cc; color: white; border: none; width: 90%; padding: 10px; margin-bottom: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center; color: #70b5f0;">KATALOG DRAMA</h3>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/200x300?text=Drama+Istana">
+            <div class="title">Terlalu malas untuk drama istana</div>
+            <button class="btn" onclick="pilih('1')">Tonton</button>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/200x300?text=Ayah+Bayiku">
+            <div class="title">Terlahir kembali mencintai ayah bayiku</div>
+            <button class="btn" onclick="pilih('2')">Tonton</button>
+        </div>
+    </div>
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        function pilih(id) {
+            tg.sendData("/nonton_" + id);
+            tg.close();
+        }
+    </script>
+</body>
+</html>
